@@ -1,0 +1,1123 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>Guide - OrgBook BC API</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="bcgov" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#guide-to-using-the-orgbook-bc-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../" title="OrgBook BC API" class="md-header__button md-logo" aria-label="OrgBook BC API" data-md-component="logo">
+      
+  <img src="../../assets/img/logo-banner.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OrgBook BC API
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="../../api/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../fr/api/" hreflang="fr" class="md-select__link">
+                    Français
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../es/api/" hreflang="es" class="md-select__link">
+                    Español
+                  </a>
+                </li>
+              
+                <li class="md-select__item">
+                  <a href="../../pt/api/" hreflang="pt" class="md-select__link">
+                    Português
+                  </a>
+                </li>
+              
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="OrgBook BC API" class="md-nav__button md-logo" aria-label="OrgBook BC API" data-md-component="logo">
+      
+  <img src="../../assets/img/logo-banner.svg" alt="logo">
+
+    </a>
+    OrgBook BC API
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Guide
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-orgbook-bc" class="md-nav__link">
+    What is OrgBook BC?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    Common scenarios
+  </a>
+  
+    <nav class="md-nav" aria-label="Common scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-get-a-list-of-credential-issuers-registered-in-orgbook" class="md-nav__link">
+    I want to get a list of credential issuers registered in OrgBook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-get-a-list-of-available-credential-types-in-orgbook" class="md-nav__link">
+    I want to get a list of available credential types in OrgBook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-build-a-legal-name-search-component-in-my-application" class="md-nav__link">
+    I want to build a legal name search component in my application
+  </a>
+  
+    <nav class="md-nav" aria-label="I want to build a legal name search component in my application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-example-1" class="md-nav__link">
+    Implementation Example 1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-auto-populate-form-fields-with-organization-info" class="md-nav__link">
+    I want to auto-populate form fields with organization info
+  </a>
+  
+    <nav class="md-nav" aria-label="I want to auto-populate form fields with organization info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-query-for-a-topic" class="md-nav__link">
+    Step 1. Query for a topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-query-for-credentials" class="md-nav__link">
+    Step 2. Query for credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-example-2" class="md-nav__link">
+    Implementation Example 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-search-for-organizations-with-a-specific-credential" class="md-nav__link">
+    I want to search for Organizations with a specific credential
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-is-orgbook-bc" class="md-nav__link">
+    What is OrgBook BC?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    Common scenarios
+  </a>
+  
+    <nav class="md-nav" aria-label="Common scenarios">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-get-a-list-of-credential-issuers-registered-in-orgbook" class="md-nav__link">
+    I want to get a list of credential issuers registered in OrgBook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-get-a-list-of-available-credential-types-in-orgbook" class="md-nav__link">
+    I want to get a list of available credential types in OrgBook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-build-a-legal-name-search-component-in-my-application" class="md-nav__link">
+    I want to build a legal name search component in my application
+  </a>
+  
+    <nav class="md-nav" aria-label="I want to build a legal name search component in my application">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#implementation-example-1" class="md-nav__link">
+    Implementation Example 1
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-auto-populate-form-fields-with-organization-info" class="md-nav__link">
+    I want to auto-populate form fields with organization info
+  </a>
+  
+    <nav class="md-nav" aria-label="I want to auto-populate form fields with organization info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-query-for-a-topic" class="md-nav__link">
+    Step 1. Query for a topic
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-query-for-credentials" class="md-nav__link">
+    Step 2. Query for credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-example-2" class="md-nav__link">
+    Implementation Example 2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-search-for-organizations-with-a-specific-credential" class="md-nav__link">
+    I want to search for Organizations with a specific credential
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="guide-to-using-the-orgbook-bc-api">Guide to using the OrgBook BC API</h1>
+<p>This document has been created as a first reference for the OrgBook BC API. When you become more familiar with the basic concepts, you may want to go on to explore the various Open API specifications (specifically <a href="https://orgbook.gov.bc.ca/api/v3/">v3</a> and <a href="https://orgbook.gov.bc.ca/api/v4/">v4</a>) and all of the endpoints available. You are encouraged to use the most up-to-date production version (<a href="https://orgbook.gov.bc.ca/api/v4/">v4</a>) of the API in your applications to avoid any issues with backward compatibility.</p>
+<h2 id="introduction">Introduction</h2>
+<h3 id="what-is-orgbook-bc">What is OrgBook BC?</h3>
+<p>OrgBook BC (or OrgBook for short) is a type of <a href="https://github.com/hyperledger/aries">Hyperledger Aries</a> Verifiable Credential Registry (<a href="https://github.com/bcgov/aries-vcr">Aries VCR</a>). Aries VCR is a set of software tools that make it easy to host and issue <a href="https://en.wikipedia.org/wiki/Verifiable_credentials">verifiable credentials</a> of any type. OrgBook is a specific implementation of an Aries VCR built by the Government of British Columbia, that hosts verifiable credentials about organizations registered in the province. <em>The key point to remember is that (almost) everything is a credential in OrgBook.</em> Everything from an organization's registration information, to its business number and its relations to other organizations within the province, is stored as a verifiable credential in OrgBook. Credentials are issued to OrgBook by various authorized credential issuers that register themselves with OrgBook.</p>
+<p>The OrgBook API is a RESTful interface to OrgBook. It has been purposefully built for developers to access and integrate verifiable credentials (i.e. data about registered organizations) from OrgBook into their own applications. The following documentation outlines the most common scenarios that developers are likely to use the OrgBook API for, including use cases for specific features that most will be looking to build into their applications.</p>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#common-scenarios">Common scenarios</a><ul>
+<li><a href="#i-want-to-get-a-list-of-credential-issuers-registered-in-orgbook">I want to get a list of credential issuers registered in OrgBook</a></li>
+<li><a href="#i-want-to-get-a-list-of-available-credential-types-in-orgBook">I want to get a list of available credential types in OrgBook</a></li>
+<li><a href="#i-want-to-build-a-legal-name-search-component-in-my-application">I want to build a legal name search component in my application</a><ul>
+<li><a href="#implementation-example-1">Implementation Example 1</a></li>
+</ul>
+</li>
+<li><a href="#i-want-to-auto-populate-form-fields-with-organization-info">I want to auto-populate form fields with organization info</a><ul>
+<li><a href="#step-1-query-for-a-topic">Step 1. Query for a topic</a></li>
+<li><a href="#step-2-query-for-credentials">Step 2. Query for credentials</a></li>
+<li><a href="#implementation-example-2">Implementation Example 2</a></li>
+</ul>
+</li>
+<li><a href="#i-want-to-search-for-organizations-with-a-specific-credential">I want to search for Organizations with a specific credential</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="common-scenarios">Common scenarios</h2>
+<h3 id="i-want-to-get-a-list-of-credential-issuers-registered-in-orgbook">I want to get a list of credential issuers registered in OrgBook</h3>
+<p>To do this, make a <code>GET</code> request to the <code>/v4/issuer</code> endpoint. The response will look something like:</p>
+<details class="code" open="open">
+<summary>JSON</summary>
+<p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;first_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;last_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;next&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;previous&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;has_logo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;create_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-02-14T14:27:35.624957-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;update_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-12-17T12:10:41.271874-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;did&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HR6vs6GEZ8rHaVgjg2WodM&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC Corporate Registry&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;abbreviation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BCReg&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bcregistries@gov.bc.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/bc-registries-online-services&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;endpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="err">...</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<p>The results are a list of credential issuers that have registered with OrgBook. They may or may not have issued any credentials to OrgBook yet. In the above example, the issuer with an <code>id</code> of <code>1</code> is the BC Corporate Registry which issues credentials to OrgBook that have to do with to an organization's registration in the province, among others. Developers can find out what type of credentials are issued by a specific issuer, by making a <code>GET</code> request to the <code>/v4/credential-type</code> endpoint (see below).</p>
+<h3 id="i-want-to-get-a-list-of-available-credential-types-in-orgbook">I want to get a list of available credential types in OrgBook</h3>
+<p>To do this, make a <code>GET</code> request to the <code>/v4/credential-type</code> endpoint. The response will look something like:</p>
+<details class="code" open="open">
+<summary>JSON</summary>
+<p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;first_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;last_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;next&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;previous&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;has_logo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;create_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2020-02-14T14:27:35.689210-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;update_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-04T08:00:28.364836-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_def_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;HR6vs6GEZ8rHaVgjg2WodM:3:CL:41051:tag&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;last_issue_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-04T08:00:28.364734-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bcreg/incorporation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;schema_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;translations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration Credential&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;claim_labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration Type&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;expiry_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Credential Expiry Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_status&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration Status&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Credential Effective Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;registration_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration ID&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_name_trans&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Translated Name&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;home_jurisdiction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Home Jurisdiction&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;registration_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;reason_description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Reason&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_name_assumed&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Assumed Name&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_name_effective&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Name Effective Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_status_effective&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Status Effective Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;registered_jurisdiction&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registered Jurisdiction&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;registration_expiry_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration Expiry Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_name_trans_effective&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Translated Name Effective Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;entity_name_assumed_effective&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Assumed Name Effective Date&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;registration_renewal_effective&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Registration Renewal Effective&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;extra_jurisdictional_registration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;en&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Extra-Jurisdictional Registration&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="err">...</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<p>The results are a list of credential types that are currently registered in OrgBook. This doesn't necessarily mean there are any credentials of the registered types in OrgBook, but simply that these are the types of credentials that OrgBook knows about and will accept from issuers. For example, organization addresses are a type of credential registered in OrgBook, however BC Registries (the registered credential issuer of that type) has not currently made those credentials available in OrgBook (i.e. they have not issued any credentials of that type to OrgBook).</p>
+<p>As an update to version <code>v4</code> of the API, credential types now <em>optionally</em> have localization labels and descriptions for the credential type name (specified in the <code>schema_label</code> object) and/or credential type attributes (specified in the <code>claim_labels</code> object). These labels can be useful for multi-lingual applications or for providing human readable field names, however they must be defined by issuers when registering credential types with OrgBook and are therefore not always guaranteed to be present.</p>
+<h3 id="i-want-to-build-a-legal-name-search-component-in-my-application">I want to build a legal name search component in my application</h3>
+<p>Developers often want to include a search feature for the legal names of registered BC organizations in their applications (usually to <a href="#i-want-to-auto-populate-form-fields-with-organization-info">auto-populate form inputs</a>). It is so commonplace, that the OrgBook developer team created the <code>/v4/search/autocomplete</code> endpoint.</p>
+<p>Make a <code>GET</code> request to the <code>/v4/search/autocomplete</code> endpoint, passing a string of characters to the <code>q</code> query parameter in the request URL. OrgBook will try to match the string of characters to names of registered organizations.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>If you wanted to query for the name <code>'Power Corp'</code> you would format the request like:
+<div class="highlight"><pre><span></span><code>/v4/search/autocomplete?q=Power%20Corp
+</code></pre></div>
+The response will look something like:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;first_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;last_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;sub_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;U3 POWER CORP.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_source_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC0772006&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d759d210-628a-4a02-9da3-506cb253ee6c&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">59.46851</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;sub_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;STOTHERT POWER CORP.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_source_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC0070832&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;70bfb05d-a4a7-4dc9-8e82-037f9eeb90ef&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">59.150566</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;sub_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;UNIVERSAL POWER CORP.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_source_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC0334496&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ab583755-b031-46a2-ab38-1f4b0644d817&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">59.150566</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="err">...</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<p>Results are returned in pages of up to 10 closely matching organization names, each with a match <code>score</code>. The results are sorted from the highest to the lowest score, therefore closer matches will be at the top of the results. OrgBook will return fewer results with higher match scores (i.e. the more closely a query string matches, the fewer names it will match to). If OrgBook is unable to match a query string to any organization name, it will return empty results.</p>
+<p>The autocomplete endpoint also supports querying/autocompletion on 9-digit CRA Business Number and BC Registration Numbers.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>When using <code>'BC11'</code> as the query string, the following results are returned:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;first_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;last_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;sub_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_name&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1133(BC) ENGINEERING&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_source_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FM0530375&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fb87ceb3-cba7-4e42-9c54-acb18aa850e0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.4135065</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_source_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC1112195&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;topic&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;sub_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source_id&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC1112195&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;topic_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;adc136ed-23b7-4d97-b3b9-8c9f633aacbb&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">2.4997532</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="err">...</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>Here we can see that not only did the query string match a company name (indicated by the <code>type</code>: <code>'name'</code>) but it also matched a registration number (indicated by the <code>type</code>: <code>'topic'</code>) The <code>sub_type</code> further indicates what credential attribute (if any) the query string matched with.</p>
+</details>
+<p>There are optional parameters that you can attach to the request:</p>
+<ul>
+<li>The <code>inactive</code> query parameter denotes whether inactive organizations (i.e. those with a status of <code>'Historical'</code>) should be included in the results (defaults to <code>'false'</code>).</li>
+<li>The <code>revoked</code> query parameter denotes whether organizations with revoked registration credentials should be returned in the results (defaults to <code>'false'</code>).</li>
+</ul>
+<h4 id="implementation-example-1">Implementation Example 1</h4>
+<div class="admonition play">
+<p class="admonition-title">See it in action!</p>
+<p>
+Checkout an example on StackBlitz for a simple implementation of an autocomplete name search using jQuery UI and plain HTML.</p>
+<p><a href="https://stackblitz.com/edit/js-uum64f"><img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" /></a></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Another simple approach could be to attach a <code>'keypress'</code> event listener to a text input. As a user types, requests are made to <code>/v4/search/autocomplete</code> with the value of the input. You may want to employ techniques, like debouncing, to reduce the number of calls to the API server. Better yet, use an existing UI library that provides these features out of the box and simply pass autocomplete results to display.</p>
+</div>
+<h3 id="i-want-to-auto-populate-form-fields-with-organization-info">I want to auto-populate form fields with organization info</h3>
+<p>Developers often create applications that require information about registered BC organizations in their applications. For example, you could be building an application that issues a loan or a certificate only to registered BC organizations. You currently have a form with fields for an organization's name, BC Registries number, CRA business number, type, and status that need to be filled in. The OrgBook API enables you to pull this information from OrgBook credentials. You can then programmatically populate the fields in your form using the credential data.</p>
+<p>You simply need to call a few endpoints in the OrgBook API in the following order (assuming you have already performed an <a href="#i-want-to-build-a-legal-name-search-component-in-my-application">autocomplete name search</a> and are using one of the results from that request, or you know the BC Registries number of the organization you require information about):</p>
+<h4 id="step-1-query-for-a-topic">Step 1. Query for a topic</h4>
+<p>Make a <code>GET</code> request to the <code>/v4/search/topic</code> endpoint, passing in the BC Registries number (this is the <code>topic_source_id</code> field in an autocomplete result) to the <code>q</code> query parameter in the request URL.</p>
+<p>There are optional parameters that you can attach to the request:</p>
+<ul>
+<li>The <code>inactive</code> query parameter denotes whether inactive organizations (i.e. those with a status of <code>'Historical'</code>) should be included in the results (defaults to <code>'false'</code>).</li>
+<li>The <code>revoked</code> query parameter denotes whether organizations with revoked registration credentials should be returned in the results (defaults to <code>'false'</code>).</li>
+<li>The <code>latest</code> query parameter denotes whether only the most recently issued credential(s) should be returned (defaults to <code>'true'</code>).</li>
+</ul>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>If you wanted to query for information about <code>'U3 POWER CORP.'</code> you would format the request like: 
+<div class="highlight"><pre><span></span><code>/v4/search/topic?q=BC0772006`
+</code></pre></div>
+The response will look something like:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;first_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;last_index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;next&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;previous&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">785314</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;source_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC0772006&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;names&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;addresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_set&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;inactive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;revoked&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2006-10-17T16:58:42-07:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;revoked_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<p>Each of the results returned is a foundational credential for the <em>topic</em> you are searching for. A foundational credential is generated when an organization is first registered in OrgBook. All other credentials for this organization are then linked (related to) this credential. It is possible to receive more than 1 foundational credential back from this query (especially for those belonging to related organizations). Results are returned in pages of up to 10 closely matching organizations to the query string you provide. Typically you would iterate through the results and find the first credential where the <code>source_id</code> matches the BC Registries number you passed as the query string.</p>
+<h4 id="step-2-query-for-credentials">Step 2. Query for credentials</h4>
+<p>Locate the <code>id</code> field from the previous result. The topic <code>id</code> can be used to obtain all credentials for an organization of interest from OrgBook.</p>
+<p>Make a <code>GET</code> request to the <code>/v4/topic/{id}/credential-set</code> endpoint, substituting the <code>{id}</code> URL parameter with the topic <code>id</code> from the previous topic search.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>If you wanted to query for all of the credentials of <code>'U3 POWER CORP.'</code> you would format the request like:
+<div class="highlight"><pre><span></span><code>/v4/topic/785314/credential-set
+</code></pre></div>
+This endpoint will return every credential issued to the organization, including revoked credentials:
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">784566</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;create_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-18T17:14:21.673415+00:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;update_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-18T17:14:21.673430+00:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;latest_credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1092967</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;first_effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2006-10-17T23:58:42+00:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;last_effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;credentials&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1092967</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;has_logo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;create_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-17T15:20:47.965162-07:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;update_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-04T09:31:17.517878-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;registration.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;credential_def_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6D2evN7HsKjz7dy2xSaYoJ:3:CL:341:default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;last_issue_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-04T09:31:17.517769-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bcreg/incorporation&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;credential_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;highlighted_attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;schema_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;d759d210-628a-4a02-9da3-506cb253ee6c&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_def_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6D2evN7HsKjz7dy2xSaYoJ:3:CL:341:default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2006-10-17T16:58:42-07:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;inactive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;latest&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;revoked&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;revoked_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;revoked_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">          </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7468700</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_status&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;category&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACT&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7468702</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_type&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;category&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="err">...</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;names&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2403978</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;create_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-19T07:53:47.085574+00:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;update_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-19T07:53:47.085589+00:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;latest_credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2876919</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;first_effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2006-10-17T23:58:42+00:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;last_effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;credentials&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">      </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2876919</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;issuer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;has_logo&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;create_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2021-08-17T15:20:47.991055-07:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;update_timestamp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-04T09:31:18.136136-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;business_number.registries.ca&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;credential_def_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6D2evN7HsKjz7dy2xSaYoJ:3:CL:347:default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;last_issue_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-01-04T09:31:18.136071-08:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/bcreg/address&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;credential_title&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;highlighted_attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;schema_label&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="w">          </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0b77e1ea-cc29-41ce-b770-380e35e49508&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_def_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6D2evN7HsKjz7dy2xSaYoJ:3:CL:347:default&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;effective_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2006-10-17T16:58:42-07:00&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;inactive&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;latest&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;revoked&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;revoked_date&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;revoked_by&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">          </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">15297356</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;business_number&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;attribute&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;000760180&quot;</span><span class="w"></span>
+<span class="w">          </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;names&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+Two sets of credentials have been returned in the results. Each credential set is a list of credentials of a given type. This list will contain both valid and revoked credentials in the order they were issued to OrgBook. Each credential contains the <code>credential_type</code> it corresponds to. For example, locating the <code>description</code> field in the first credential of the first set, indicates that this credential is of type <code>'registration.registries.ca'</code> type. The first credential of the second set is of the type <code>'business_number.registries.ca'</code>.</p>
+<p>You will most likely only care about non-revoked credentials and will likely want to reduce or flatten the sets down to a single list of those non-revoked credentials.</p>
+<p>The first credential of interest contains registration information about the organization. The list of <code>attributes</code> contains various fields, such as <code>'entity_status'</code>, <code>'entity_type'</code> and others. The registration credential attributes for this organization indicate that this is an Active, BC Company.</p>
+<p>The second credential of interest contains information about the organization's business number, issued by the Canada Revenue Agency for tax purposes. There is only a single attribute for the <code>'business_number'</code>. The <code>'value'</code> is the business number itself.</p>
+<p>Together these credentials can be used to programmatically fill in form fields in an application.</p>
+</details>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>In another unrelated example, the following attribute list tells us that the organization is an Active, Sole Proprietorship within British Columbia:
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_status&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;category&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ACT&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_type_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;entity_type&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;category&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SP&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_type_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;home_jurisdiction&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;format&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jurisdiction&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BC&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">...</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;credential_type_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div></p>
+</details>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Credential sets are also useful for generating a timeline of credentials issued to and/or revoked from an organization. It is in fact what is used to generate OrgBook's credential timeline. For example, check out: <a href="https://orgbook.gov.bc.ca/entity/BC1162838">https://orgbook.gov.bc.ca/entity/BC1162838</a>.</p>
+</div>
+<h4 id="implementation-example-2">Implementation Example 2</h4>
+<div class="admonition play">
+<p class="admonition-title">See it in action!</p>
+<p>
+Checkout an example on StackBlitz for a simple implementation of auto-populating a form from OrgBook credentials using jQuery UI and plain HTML.</p>
+<p><a href="https://stackblitz.com/edit/js-y5jxtf"><img alt="Open in StackBlitz" src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" /></a></p>
+</div>
+<h3 id="i-want-to-search-for-organizations-with-a-specific-credential">I want to search for Organizations with a specific credential</h3>
+<p>Suppose you are the Cannabis Permit Issuer website and you want to offer a search capability on your site based on OrgBook. As such, you ONLY want to return matching results of entities that have licenses issued by your group.</p>
+<p>This is, in fact, a very simple operation so long as you know the ID of the credential type(s) you want searches to be based on.</p>
+<p>To find out what credential types are in OrgBook refer to the documentation above on: <a href="#i-want-to-get-a-list-of-available-credential-types-in-orgBook">I want to get a list of available credential types in OrgBook</a>.</p>
+<p>Suppose, in this case, you want to limit searches to organizations that have a Cannabis Retail Store License. The ID for this credential type in OrgBook is <code>4</code>.</p>
+<p>Now all you have to do is construct the <a href="#step-1-query-for-a-topic">topic search</a> URL with the <code>credential_type_id</code> query parameter included and set to a value of <code>4</code>.</p>
+<details class="example" open="open">
+<summary>Example</summary>
+<p>If you wanted to query for all organizations with a Cannabis Retail Store License you would format the request like:
+<div class="highlight"><pre><span></span><code>/v4/search/topic?credential_type_id=4
+</code></pre></div>
+The response will now only contain results that have credentials with that type. You can refine searches further, using the techniques described above.</p>
+</details>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../contributing/" class="md-footer__link md-footer__link--next" aria-label="Next: Contributing" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Contributing
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>

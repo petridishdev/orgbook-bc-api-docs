@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+         <loc>None./</loc>
+         <lastmod>2022-12-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/"/>
+         <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/"/>
+         <xhtml:link rel="alternate" hreflang="es" href="Nonees/"/>
+         <xhtml:link rel="alternate" hreflang="pt" href="Nonept/"/>
+         
+    </url>
+    <url>
+         <loc>Noneapi/</loc>
+         <lastmod>2022-12-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/api/"/>
+         <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/api/"/>
+         <xhtml:link rel="alternate" hreflang="es" href="Nonees/api/"/>
+         <xhtml:link rel="alternate" hreflang="pt" href="Nonept/api/"/>
+         
+    </url>
+    <url>
+         <loc>Nonecontributing/</loc>
+         <lastmod>2022-12-30</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="Noneen/contributing/"/>
+         <xhtml:link rel="alternate" hreflang="fr" href="Nonefr/contributing/"/>
+         <xhtml:link rel="alternate" hreflang="es" href="Nonees/contributing/"/>
+         <xhtml:link rel="alternate" hreflang="pt" href="Nonept/contributing/"/>
+         
+    </url>
+</urlset>
